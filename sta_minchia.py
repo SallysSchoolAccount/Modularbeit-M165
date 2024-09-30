@@ -6,21 +6,23 @@ def alles_zeigen(collection):
 
 
 def suche_nach_name(collection):
-    eingabe_name = input("Nach was suchen sie ?")
+    eingabe_name = input("Nach was suchen sie ?").lower()
     namen_suche = {"name": {"$regex": eingabe_name}}
     for dokument in collection.find(namen_suche):
         print(dokument)
 
 
-def suche_nach_jahr(collection):
-    eingabe_jahr = input("Nach welchen Jahr suchen sie ?")
-    mehr_oder_weniger = input("Mehr oder Weniger als ?")
-    if mehr_oder_weniger == "mehr":
-        jahr_suche_mehr = {"jahr": {"$gte": eingabe_jahr}}
-        for dokument in collection.find(jahr_suche_mehr):
-            print(dokument)
-    elif mehr_oder_weniger == "weniger":
-        jahr_suche_weniger = {"jahr": {"$lte": eingabe_jahr}}
-        for dokument in collection.find(jahr_suche_weniger):
-            print(dokument)
-    else: eingabe_jahr
+def suche_nach_int(collection):
+    eingabe_modus = input("Jahr, Downloads, Bewertung, PEGI ?").lower()
+    eingabe_operator = input("Mehr, weniger oder gleich ?").lower()
+    if eingabe_operator == "mehr":
+        operatorDB = "$gte"
+    elif eingabe_operator == "weniger":
+        operatorDB = "$lte"
+    elif eingabe_operator == "gleich":
+        operatorDB = "$eq"
+    else: eingabe_operator
+    eingabe_nummer = int(input("Nach welche Zahl ?"))
+    such_query = {eingabe_modus: {operatorDB: eingabe_nummer}}
+    for dokument in collection.find(such_query):
+        print(dokument)

@@ -1,7 +1,6 @@
 import pymongo
 from sta_minchia import alles_zeigen
-from sta_minchia import suche_nach_name
-from sta_minchia import suche_nach_jahr
+from sta_minchia import suche_nach_int
 
 verbindung = pymongo.MongoClient("mongodb://localhost:27017/")
 datenbank = verbindung["Spiele"]
@@ -13,10 +12,8 @@ def main():
         eingabe = input("Enter a command:")
         if eingabe.lower() == "alles":
             alles_zeigen(collection)
-        elif eingabe.lower() == "namen suche":
-            suche_nach_name(collection)
-        elif eingabe.lower() == "jahr suche":
-            suche_nach_jahr(collection)
+        elif eingabe.lower() == "zahl suche":
+            suche_nach_int(collection)
         elif eingabe.lower() == "quit":
             print("Die Anwendung wird geschlossen")
             break
