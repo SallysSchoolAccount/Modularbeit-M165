@@ -12,7 +12,12 @@ collection = datenbank["Spielsammlung"]
 
 def main():
     while True:
-        eingabe = input("Enter a command:")
+        eingabe = input("\nDokumente:\nAlle Elemente anzeigen\n"
+                        "\nNamen suche:\nNach namen suchen\n"
+                        "\nZahl suche:\nNach Felder suchen wo Zahlen als Wert haben\n"
+                        "\nArray suche:\nIn Arrayfelder suchen\n"
+                        "\nquit:\nProgramm stoppen\n"
+                        "\nEnter a command: ")
         if eingabe.lower() == "dokumente":
             alles_zeigen(collection)
         elif eingabe.lower() == "namen suche":

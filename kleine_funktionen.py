@@ -27,8 +27,7 @@ def sortierung():
 
         #TODO ========Error when declining sort function, TypeError: Expected a string and a direction=====
         elif eingabe_sortierung == "n":
-            ascdesc = 0
-            return None, ascdesc
+            return None, None
         else:
             print("Bitte 'y' oder 'n' eingeben.")
 
@@ -48,11 +47,14 @@ def auslassen():
 
 def limitieren():
     while True:
-        #TODO ========Type alles for more user friendship===========
-        limit_anzahl = int(input("Wie viele Resultate anzeigen ? (0 eingeben um alles anzeigen)"))
-        if limit_anzahl < -1:
+        limit_eingabe: str = input("Wie viele Resultate anzeigen ?")
+        if limit_eingabe < "-1":
             print("Zahl nicht gültig")
+        elif limit_eingabe == "alle":
+            limit_anzahl = 0
+            return limit_anzahl
         else:
+            limit_anzahl = int(limit_eingabe)
             return limit_anzahl
 
 
@@ -60,13 +62,20 @@ def spezifisch_anzeigen():
     #TODO ===========Some debug preset so the id shows 'cause its demure=============
     gezeigte_felder = {"_id": 0}
     while True:
-        felder_eingabe = input("Welche Felder wolen sie angezeigt haben ?").lower()
+        felder_eingabe = input("Welche Felder wolen sie angezeigt haben ?"
+                               "\n(Stop tippen um keine Felder mehr zu zeigen )"
+                               "\n(Tippen sie hilfe um befehle zu zeigen)").lower()
         if felder_eingabe == "stop":
             break
+        elif felder_eingabe == "hilfe":
+            print("Presets:"
+                  "\nbasic"
+                  "\nalle")
         elif felder_eingabe == "basic":
             gezeigte_felder |= {"name": 1, "jahr": 1, "bewertung": 1}
         elif felder_eingabe == "alle":
             gezeigte_felder |= {"name": 1, "jahr": 1, "downloads": 1,  "bewertung": 1, "genre": 1, "pegi": 1}
+            break
         else:
             gezeigte_felder |= {felder_eingabe: 1}
     return gezeigte_felder
