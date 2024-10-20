@@ -3,6 +3,7 @@ from such_funktionen import alles_zeigen
 from such_funktionen import suche_nach_int
 from such_funktionen import suche_nach_name
 from such_funktionen import suche_in_array
+from aenderung_funktionen import einfuegen
 
 #Verbindung zur Datenbank
 verbindung = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -26,6 +27,8 @@ def main():
             suche_nach_int(collection)
         elif eingabe.lower() == "array suche":
             suche_in_array(collection)
+        elif eingabe.lower() == "einfügen":
+            einfuegen(collection)
         elif eingabe.lower() == "quit":
             print("Die Anwendung wird geschlossen")
             break
