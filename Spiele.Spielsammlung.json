@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "66f80d8eda132f1ca77e804f"
+  },
+  "name": "god of war",
+  "jahr": 2018,
+  "downloads": 1000000,
+  "bewertung": 9,
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11c8"
+  },
+  "name": "Enotria: The last song",
+  "jahr": 2024,
+  "downloads": 540000,
+  "bewertung": 7,
+  "genre": [
+    "Souls-lite",
+    "Action",
+    "RPG"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11c9"
+  },
+  "name": "Dark Souls",
+  "jahr": 2013,
+  "downloads": 1540000,
+  "bewertung": 9,
+  "genre": [
+    "Souls-like",
+    "Adventure",
+    "RPG"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11ca"
+  },
+  "name": "Disco Elysium",
+  "jahr": 2019,
+  "downloads": 717900,
+  "bewertung": 8,
+  "genre": [
+    "Adventure",
+    "Puzzle",
+    "RPG"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cb"
+  },
+  "name": "Star wars: Jedi Survivor",
+  "jahr": 2022,
+  "downloads": 543600,
+  "bewertung": 6,
+  "genre": [
+    "Souls-lite",
+    "Action",
+    "Adventure"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cc"
+  },
+  "name": "Animal Crossing: New Horizons",
+  "jahr": 2020,
+  "downloads": 3546500,
+  "bewertung": 8,
+  "genre": [
+    "Simulator",
+    "Horror",
+    "RPG"
+  ],
+  "pegi": 3
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cd"
+  },
+  "name": "Doom Eternal",
+  "jahr": 2020,
+  "downloads": 4785000,
+  "bewertung": 8,
+  "genre": [
+    "FPS",
+    "Action",
+    "Adventure"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11ce"
+  },
+  "name": "Silent Hill 2",
+  "jahr": 2002,
+  "downloads": 7547700,
+  "bewertung": 10,
+  "genre": [
+    "Horror",
+    "Adventure",
+    "Puzzle"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cf"
+  },
+  "name": "Five Nights at Freddys",
+  "jahr": 2015,
+  "downloads": 6540000,
+  "bewertung": 4,
+  "genre": [
+    "Horror",
+    "Simulator",
+    "Puzzle"
+  ],
+  "pegi": 16
+}]
