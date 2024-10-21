@@ -1,9 +1,9 @@
 import pymongo
-from such_funktionen import alles_zeigen
-from such_funktionen import suche_nach_int
-from such_funktionen import suche_nach_name
-from such_funktionen import suche_in_array
-from aenderung_funktionen import einfuegen
+from read import alles_zeigen
+from read import suche_nach_int
+from read import suche_nach_name
+from read import suche_in_array
+from create_and_update import einfuegen
 
 #Verbindung zur Datenbank
 verbindung = pymongo.MongoClient("mongodb://localhost:27017/")

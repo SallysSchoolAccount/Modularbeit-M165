@@ -24,10 +24,8 @@ def sortierung():
                 else:
                     print("Bitte 'Aufsteigend' oder 'Absteigend' eingeben.")
             return sortierungs_element, ascdesc
-
-        #TODO ========Error when declining sort function, TypeError: Expected a string and a direction=====
         elif eingabe_sortierung == "n":
-            return None, None
+            return "name", 1
         else:
             print("Bitte 'y' oder 'n' eingeben.")
 

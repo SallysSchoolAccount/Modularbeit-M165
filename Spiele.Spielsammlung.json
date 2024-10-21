@@ -6,20 +6,25 @@
   "jahr": 2018,
   "downloads": 1000000,
   "bewertung": 9,
+  "genre": [
+    "action",
+    "hack-and-slash",
+    "adventure"
+  ],
   "pegi": 18
 },
 {
   "_id": {
     "$oid": "66f812980c73e07b1ffd11c8"
   },
-  "name": "Enotria: The last song",
+  "name": "enotria: the last song",
   "jahr": 2024,
   "downloads": 540000,
   "bewertung": 7,
   "genre": [
-    "Souls-lite",
-    "Action",
-    "RPG"
+    "souls-lite",
+    "action",
+    "rpg"
   ],
   "pegi": 16
 },
@@ -27,14 +32,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11c9"
   },
-  "name": "Dark Souls",
+  "name": "dark souls",
   "jahr": 2013,
   "downloads": 1540000,
   "bewertung": 9,
   "genre": [
-    "Souls-like",
-    "Adventure",
-    "RPG"
+    "souls-like",
+    "adventure",
+    "rpg"
   ],
   "pegi": 16
 },
@@ -42,14 +47,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11ca"
   },
-  "name": "Disco Elysium",
+  "name": "disco elysium",
   "jahr": 2019,
   "downloads": 717900,
   "bewertung": 8,
   "genre": [
-    "Adventure",
-    "Puzzle",
-    "RPG"
+    "adventure",
+    "puzzle",
+    "rpg"
   ],
   "pegi": 18
 },
@@ -57,14 +62,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11cb"
   },
-  "name": "Star wars: Jedi Survivor",
+  "name": "star wars: jedi survivor",
   "jahr": 2022,
   "downloads": 543600,
   "bewertung": 6,
   "genre": [
-    "Souls-lite",
-    "Action",
-    "Adventure"
+    "souls-lite",
+    "action",
+    "adventure"
   ],
   "pegi": 16
 },
@@ -72,14 +77,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11cc"
   },
-  "name": "Animal Crossing: New Horizons",
+  "name": "animal crossing: new horizons",
   "jahr": 2020,
   "downloads": 3546500,
   "bewertung": 8,
   "genre": [
-    "Simulator",
-    "Horror",
-    "RPG"
+    "simulator",
+    "horror",
+    "rpg"
   ],
   "pegi": 3
 },
@@ -87,14 +92,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11cd"
   },
-  "name": "Doom Eternal",
+  "name": "doom eternal",
   "jahr": 2020,
   "downloads": 4785000,
   "bewertung": 8,
   "genre": [
-    "FPS",
-    "Action",
-    "Adventure"
+    "fps",
+    "action",
+    "adventure"
   ],
   "pegi": 18
 },
@@ -102,14 +107,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11ce"
   },
-  "name": "Silent Hill 2",
+  "name": "silent hill 2",
   "jahr": 2002,
   "downloads": 7547700,
   "bewertung": 10,
   "genre": [
-    "Horror",
-    "Adventure",
-    "Puzzle"
+    "horror",
+    "adventure",
+    "puzzle"
   ],
   "pegi": 18
 },
@@ -117,14 +122,14 @@
   "_id": {
     "$oid": "66f812980c73e07b1ffd11cf"
   },
-  "name": "Five Nights at Freddys",
+  "name": "five nights at freddys",
   "jahr": 2015,
   "downloads": 6540000,
   "bewertung": 4,
   "genre": [
-    "Horror",
-    "Simulator",
-    "Puzzle"
+    "horror",
+    "simulator",
+    "puzzle"
   ],
   "pegi": 16
 }]
