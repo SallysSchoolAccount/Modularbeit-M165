@@ -1,3 +1,5 @@
+from kleine_funktionen import spezifisch_anzeigen
+
 def einfuegen(collection):
     dokumente = []
 
@@ -46,3 +48,19 @@ def einfuegen(collection):
     except Exception as e:
         print(f"Ein Fehler ist aufgetreten: {str(e)}")
         return None
+
+
+def aendern(collection):
+    gezeigte_felder = spezifisch_anzeigen()
+
+    for dokument in collection.find():
+        for key, value in dokument.items():
+            print(f"{key}: {value}")
+        print("\n")
+
+    bestimmtes_feld = input("Welchen Feld verändern ?"
+                            "\nName, Jahr, Downloads, Bewertung, Genre, Pegi")
+    alter_wert = input("Alter Wert eingeben")
+    neuer_wert = input("Neuer Wert eingeben")
+    alte_sachen = {bestimmtes_feld: alter_wert}
+    neue_sachen = {"$set": {bestimmtes_feld: neuer_wert}}

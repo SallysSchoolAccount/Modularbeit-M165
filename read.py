@@ -1,10 +1,11 @@
-from kleine_funktionen import sortierung
+from kleine_funktionen import sortierung, clear_console
 from kleine_funktionen import auslassen
 from kleine_funktionen import limitieren
 from kleine_funktionen import spezifisch_anzeigen
 
 
 def alles_zeigen(collection):
+    clear_console()
     #Sotierung Funktion
     sortierungs_element, ascdesc = sortierung()
 
@@ -22,10 +23,15 @@ def alles_zeigen(collection):
             .sort(sortierungs_element, ascdesc)
             .skip(skip_anzahl)
             .limit(limit_anzahl)):
-        print(dokument)
+        for key, value in dokument.items():
+            print(f"{key}: {value}")
+        print("\n")
+    print("Wurde ausgeführt")
+    input("Drücken sie eine Taste um weiterzugehen...")
 
 
 def suche_nach_name(collection):
+    clear_console()
     eingabe_name = input("Nach was suchen sie ?").lower()
 
     #Name suchen und Suchquery
@@ -40,19 +46,23 @@ def suche_nach_name(collection):
     # Limit Funktion
     limit_anzahl = limitieren()
 
-    # Felder auswaehlen
+    #Felder auswaehlen
     gezeigte_felder = spezifisch_anzeigen()
 
     for dokument in (collection
-            .find(namen_suche)
+            .find(namen_suche, gezeigte_felder)
             .sort(sortierungs_element, ascdesc)
             .skip(skip_anzahl)
             .limit(limit_anzahl)):
-        print(dokument)
+        for key, value in dokument.items():
+            print(f"{key}: {value}")
+        print("\n")
+    input("Drücken sie eine Taste um weiterzugehen...")
 
 
 def suche_nach_int(collection):
-    #Begin of search
+    clear_console()
+    #Suche beginnen
     eingabe_modus = input("Jahr, Downloads, Bewertung, PEGI ?").lower()
     eingabe_operator = input("Mehr, weniger oder gleich ?").lower()
     if eingabe_operator == "mehr":
@@ -64,7 +74,7 @@ def suche_nach_int(collection):
     else:
         print("Mehr, weniger oder gleich ?")
     eingabe_nummer = int(input("Nach welche Zahl ?"))
-    #End of search
+    #Suche beenden
 
     # Sortierung Funktion
     sortierungs_element, ascdesc = sortierung()
@@ -85,10 +95,14 @@ def suche_nach_int(collection):
             .sort(sortierungs_element, ascdesc)
             .skip(skip_anzahl)
             .limit(limit_anzahl)):
-        print(dokument)
+        for key, value in dokument.items():
+            print(f"{key}: {value}")
+        print("\n")
+    input("Drücken sie eine Taste um weiterzugehen...")
 
 
 def suche_in_array(collection):
+    clear_console()
     value_list = []
     array_field = input("In welchen Feld suchen sie ?")
 
@@ -126,4 +140,7 @@ def suche_in_array(collection):
             .sort(sortierungs_element, ascdesc)
             .skip(skip_anzahl)
             .limit(limit_anzahl)):
-        print(dokument)
+        for key, value in dokument.items():
+            print(f"{key}: {value}")
+        print("\n")
+    input("Drücken sie eine Taste um weiterzugehen...")

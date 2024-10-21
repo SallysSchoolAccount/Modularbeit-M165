@@ -2,9 +2,9 @@ import os
 
 
 def clear_console():
-    if os.name == 'nt':  # For Windows
+    if os.name == 'nt':
         os.system('cls')
-    else:  # For macOS and Linux
+    else:
         os.system('clear')
 
 
@@ -57,7 +57,6 @@ def limitieren():
 
 
 def spezifisch_anzeigen():
-    #TODO ===========Some debug preset so the id shows 'cause its demure=============
     gezeigte_felder = {"_id": 0}
     while True:
         felder_eingabe = input("Welche Felder wolen sie angezeigt haben ?"
@@ -67,12 +66,17 @@ def spezifisch_anzeigen():
             break
         elif felder_eingabe == "hilfe":
             print("Presets:"
-                  "\nbasic"
+                  "\neinfach"
                   "\nalle")
-        elif felder_eingabe == "basic":
+        elif felder_eingabe == "einfach":
             gezeigte_felder |= {"name": 1, "jahr": 1, "bewertung": 1}
         elif felder_eingabe == "alle":
-            gezeigte_felder |= {"name": 1, "jahr": 1, "downloads": 1,  "bewertung": 1, "genre": 1, "pegi": 1}
+            gezeigte_felder |= {"name": 1,
+                                "jahr": 1,
+                                "downloads": 1,
+                                "bewertung": 1,
+                                "genre": 1,
+                                "pegi": 1}
             break
         else:
             gezeigte_felder |= {felder_eingabe: 1}
