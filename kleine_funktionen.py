@@ -1,4 +1,5 @@
 import os
+from rich import print
 
 
 def clear_console():
@@ -32,7 +33,7 @@ def sortierung():
 
 def auslassen():
     while True:
-        eingabe_skip = input("Resultate auslassen ?")
+        eingabe_skip = input("Resultate auslassen ? (y/n)")
         if eingabe_skip == "y":
             skip_anzahl = int(input("Wie viele ?"))
             return skip_anzahl
@@ -60,14 +61,10 @@ def spezifisch_anzeigen():
     gezeigte_felder = {"_id": 0}
     while True:
         felder_eingabe = input("Welche Felder wolen sie angezeigt haben ?"
-                               "\n(Stop tippen um keine Felder mehr zu zeigen )"
-                               "\n(Tippen sie hilfe um befehle zu zeigen)").lower()
+                               "\n('Stop' tippen um keine Felder mehr zu zeigen )"
+                               "\n(alle: Zeigt alle Felder an)").lower()
         if felder_eingabe == "stop":
             break
-        elif felder_eingabe == "hilfe":
-            print("Presets:"
-                  "\neinfach"
-                  "\nalle")
         elif felder_eingabe == "einfach":
             gezeigte_felder |= {"name": 1, "jahr": 1, "bewertung": 1}
         elif felder_eingabe == "alle":

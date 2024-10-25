@@ -1,5 +1,6 @@
 import pymongo
 from rich import print
+from rich.align import Align
 from kleine_funktionen import clear_console
 from read import alles_zeigen, suche_nach_int, suche_nach_name, suche_in_array
 from create_and_update import einfuegen, aendern
