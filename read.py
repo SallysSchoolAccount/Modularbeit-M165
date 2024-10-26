@@ -1,5 +1,32 @@
-from kleine_funktionen import sortierung, auslassen, limitieren, spezifisch_anzeigen, clear_console
+from rich.console import Console
 from rich.table import Table
+from kleine_funktionen import sortierung, auslassen, limitieren, spezifisch_anzeigen, clear_console
+
+
+def schnell_zeigen(collection):
+    # Fetch documents
+    documents = list(collection.find({}, {"_id": 0,
+                                          "name": 1,
+                                          "jahr": 1,
+                                          "downloads": 1,
+                                          "bewertung": 1,
+                                          "genre": 1,
+                                          "pegi": 1}))
+
+    #Console herstellen
+    console = Console()
+
+    # Tabelle herstellen
+    table = Table(title="Dokumente")
+    for key in documents[0].keys():
+        table.add_column(key)
+    for dokument in documents:
+        table.add_row(*[str(value) for value in dokument.values()])
+
+    console.print(table)
+    input("Drücken sie eine Taste um weiterzugehen...")
+    clear_console()
+
 
 def alles_zeigen(collection):
     clear_console()
@@ -17,7 +44,11 @@ def alles_zeigen(collection):
     gezeigte_felder = spezifisch_anzeigen()
 
     # Fetch documents
-    documents = list(collection.find({}, gezeigte_felder).sort(sortierungs_element, ascdesc).skip(skip_anzahl).limit(limit_anzahl))
+    documents = list(collection
+                     .find({}, gezeigte_felder)
+                     .sort(sortierungs_element, ascdesc)
+                     .skip(skip_anzahl)
+                     .limit(limit_anzahl))
 
     if not documents:
         print("Keine Dokumente gefunden.")
@@ -31,9 +62,13 @@ def alles_zeigen(collection):
     for dokument in documents:
         table.add_row(*[str(value) for value in dokument.values()])
 
+    # Create a Console object
+    console = Console()
+
     # Tabelle ausführen
-    print(table)
+    console.print(table)
     input("Drücken sie eine Taste um weiterzugehen...")
+    clear_console()
 
 
 def suche_nach_name(collection):
@@ -58,7 +93,11 @@ def suche_nach_name(collection):
 
     # Fetch Documents
     query = namen_suche
-    documents = list(collection.find(query, gezeigte_felder).sort(sortierungs_element, ascdesc).skip(skip_anzahl).limit(limit_anzahl))
+    documents = list(collection
+                     .find(query, gezeigte_felder)
+                     .sort(sortierungs_element, ascdesc)
+                     .skip(skip_anzahl)
+                     .limit(limit_anzahl))
 
     if not documents:
         print("Keine Dokumente gefunden.")
@@ -72,8 +111,11 @@ def suche_nach_name(collection):
     for dokument in documents:
         table.add_row(*[str(value) for value in dokument.values()])
 
+    # Console Objekt herstellen
+    console = Console()
+
     # Tabelle ausführen
-    print(table)
+    console.print(table)
     input("Drücken sie eine Taste um weiterzugehen...")
 
 
@@ -109,7 +151,11 @@ def suche_nach_int(collection, operatordb):
     #Search query
     such_query = {eingabe_modus: {operatordb: eingabe_nummer}}
     #Fetch Documents
-    documents = list(collection.find({such_query}, gezeigte_felder).sort(sortierungs_element, ascdesc).skip(skip_anzahl).limit(limit_anzahl))
+    documents = list(collection
+                     .find({such_query}, gezeigte_felder)
+                     .sort(sortierungs_element, ascdesc)
+                     .skip(skip_anzahl)
+                     .limit(limit_anzahl))
 
     if not documents:
         print("Keine Dokumente gefunden.")
@@ -123,8 +169,11 @@ def suche_nach_int(collection, operatordb):
     for dokument in documents:
         table.add_row(*[str(value) for value in dokument.values()])
 
+    # Console Objekt herstellen
+    console = Console()
+
     # Tabelle ausführen
-    print(table)
+    console.print(table)
     input("Drücken sie eine Taste um weiterzugehen...")
 
 
@@ -163,7 +212,11 @@ def suche_in_array(collection, suchart):
     #Suchquery
     such_query = {array_field: {suchart: value_list}}
     #Fetch Documents
-    documents = list(collection.find({such_query}, gezeigte_felder).sort(sortierungs_element, ascdesc).skip(skip_anzahl).limit(limit_anzahl))
+    documents = list(collection
+                     .find({such_query}, gezeigte_felder)
+                     .sort(sortierungs_element, ascdesc)
+                     .skip(skip_anzahl)
+                     .limit(limit_anzahl))
 
     if not documents:
         print("Keine Dokumente gefunden.")
@@ -177,6 +230,9 @@ def suche_in_array(collection, suchart):
     for dokument in documents:
         table.add_row(*[str(value) for value in dokument.values()])
 
+    # Console Objekt herstellen
+    console = Console()
+
     # Tabelle ausführen
-    print(table)
+    console.print(table)
     input("Drücken sie eine Taste um weiterzugehen...")

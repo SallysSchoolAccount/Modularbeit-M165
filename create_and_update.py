@@ -1,66 +1,71 @@
-from kleine_funktionen import spezifisch_anzeigen
+from read import schnell_zeigen
+from rich.console import Console
+from typing import List
+from kleine_funktionen import clear_console
+
 
 def einfuegen(collection):
-    dokumente = []
+    clear_console()
+    schnell_zeigen(collection)
 
-    while True:
-        print("\nNeues Dokument einfügen:")
-        dokument = {}
+    # Benutzer gibt Wert fuer jedes Feld ein
+    name = input("Enter the name: ")
+    jahr = int(input("Enter the year: "))
+    downloads = int(input("Enter the number of downloads: "))
+    bewertung = float(input("Enter the rating: "))
 
-        while True:
-            field = input("Name des Felds eingeben (oder Enter zum Beenden):").strip()
-            if not field:
-                break
-            value = input(f"Wert für {field} eingeben:")
+    # Genre ist eine liste, very annoying
+    genre_input = input("Enter genres (comma-separated): ")
+    genre: List[str] = [g.strip() for g in genre_input.split(',')]
 
-            try:
-                value = int(value)
-            except ValueError:
-                try:
-                    value = float(value)
-                except ValueError:
-                    pass  # Behalte es als String, wenn es keine Zahl ist
+    # Wert fuer pegi feld
+    pegi = int(input("Enter the PEGI rating: "))
 
-            dokument[field] = value
+    # Dokument herstellen
+    new_document = {
+        "name": name,
+        "jahr": jahr,
+        "downloads": downloads,
+        "bewertung": bewertung,
+        "genre": genre,
+        "pegi": pegi
+    }
 
-        if dokument:
-            dokumente.append(dokument)
-            print("Dokument erfolgreich zur Liste hinzugefügt")
-        else:
-            print("Keine Felder wurden zu diesem Dokument hinzugefügt")
+    # Dokumente einuegen
+    result = collection.insert_one(new_document)
 
-        nochmal = input("Noch ein Element einfügen? (y/n):").lower()
-        if nochmal != "y":
-            break
+    #Check
+    if result.inserted_id:
+        print(f"Document inserted successfully with id: {result.inserted_id}")
+        schnell_zeigen(collection)
+    else:
+        print("Failed to insert document")
 
-    if not dokumente:
-        print("Keine Dokumente wurden hinzugefügt. Vorgang abgebrochen.")
-        return None
 
+def update_documents(collection):
+
+    console = Console()
+
+    # Display all documents
+    console.print("Current documents in the collection:", style="bold green")
+
+    # Get user input for the update
+    filter_field = input("Enter the field to filter by")
+    filter_value = input("Enter the value to filter by")
+    update_field = input("Enter the field to update")
+    update_value = input("Enter the new value")
+
+    # Perform the update
     try:
-        result = collection.insert_many(dokumente)
-        if result.inserted_ids:
-            print(f"{len(result.inserted_ids)} Dokumente erfolgreich eingefügt")
-            return result.inserted_ids
-        else:
-            print("Fehler beim Einfügen der Dokumente")
-            return None
+        result = collection.update_many(
+            {filter_field: filter_value},
+            {"$set": {update_field: update_value}}
+        )
+        print(f"\n[bold green]Updated {result.modified_count} document(s)[/bold green]")
     except Exception as e:
-        print(f"Ein Fehler ist aufgetreten: {str(e)}")
-        return None
+        print(f"[bold red]An error occurred during the update: {str(e)}[/bold red]")
+        return
 
-
-def aendern(collection):
-    gezeigte_felder = spezifisch_anzeigen()
-
-    for dokument in collection.find():
-        for key, value in dokument.items():
-            print(f"{key}: {value}")
-        print("\n")
-
-    bestimmtes_feld = input("Welchen Feld verändern ?"
-                            "\nName, Jahr, Downloads, Bewertung, Genre, Pegi")
-    alter_wert = input("Alter Wert eingeben")
-    neuer_wert = input("Neuer Wert eingeben")
-    alte_sachen = {bestimmtes_feld: alter_wert}
-    neue_sachen = {"$set": {bestimmtes_feld: neuer_wert}}
+    # Display updated documents
+    console.print("\nUpdated documents in the collection:", style="bold green")
+    schnell_zeigen(collection)

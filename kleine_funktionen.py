@@ -65,8 +65,6 @@ def spezifisch_anzeigen():
                                "\n(alle: Zeigt alle Felder an)").lower()
         if felder_eingabe == "stop":
             break
-        elif felder_eingabe == "einfach":
-            gezeigte_felder |= {"name": 1, "jahr": 1, "bewertung": 1}
         elif felder_eingabe == "alle":
             gezeigte_felder |= {"name": 1,
                                 "jahr": 1,
