@@ -4,7 +4,7 @@ from kleine_funktionen import sortierung, auslassen, limitieren, spezifisch_anze
 
 
 def schnell_zeigen(collection):
-    # Fetch documents
+    # Prende i documenti
     documents = list(collection.find({}, {"_id": 0,
                                           "name": 1,
                                           "jahr": 1,
@@ -23,6 +23,7 @@ def schnell_zeigen(collection):
     for dokument in documents:
         table.add_row(*[str(value) for value in dokument.values()])
 
+    #Tabelle ausfuhren
     console.print(table)
     input("Drücken sie eine Taste um weiterzugehen...")
     clear_console()
@@ -43,7 +44,7 @@ def alles_zeigen(collection):
     # Felder auswaehlen
     gezeigte_felder = spezifisch_anzeigen()
 
-    # Fetch documents
+    # Prende i documenti
     documents = list(collection
                      .find({}, gezeigte_felder)
                      .sort(sortierungs_element, ascdesc)
@@ -77,7 +78,7 @@ def suche_nach_name(collection):
     eingabe_name = input("Nach was suchen sie?").lower()
 
     # Name suchen und Suchquery
-    namen_suche = {"name": {"$regex": eingabe_name, "$options": "i"}}  # Adding case-insensitive search
+    namen_suche = {"name": {"$regex": eingabe_name, "$options": "i"}}
 
     # Sortierung Funktion
     sortierungs_element, ascdesc = sortierung()
@@ -91,10 +92,9 @@ def suche_nach_name(collection):
     # Felder auswaehlen
     gezeigte_felder = spezifisch_anzeigen()
 
-    # Fetch Documents
-    query = namen_suche
+    # Prende i documenti
     documents = list(collection
-                     .find(query, gezeigte_felder)
+                     .find(namen_suche, gezeigte_felder)
                      .sort(sortierungs_element, ascdesc)
                      .skip(skip_anzahl)
                      .limit(limit_anzahl))
@@ -148,11 +148,10 @@ def suche_nach_int(collection, operatordb):
     # Felder auswaehlen
     gezeigte_felder = spezifisch_anzeigen()
 
-    #Search query
+    #Prende i documenti
     such_query = {eingabe_modus: {operatordb: eingabe_nummer}}
-    #Fetch Documents
     documents = list(collection
-                     .find({such_query}, gezeigte_felder)
+                     .find(such_query, gezeigte_felder)
                      .sort(sortierungs_element, ascdesc)
                      .skip(skip_anzahl)
                      .limit(limit_anzahl))
@@ -180,22 +179,14 @@ def suche_nach_int(collection, operatordb):
 def suche_in_array(collection, suchart):
     clear_console()
     value_list = []
-    array_field = input("In welchen Feld suchen sie ?")
 
     #Elemente zur suchliste hinzufuegen
     while True:
         elemente = input("Welche Elemente suchen sie ?")
-        if elemente == "enough":
+        if elemente == " ":
             break
         else:
             value_list.append(elemente)
-
-    #Suchart waehlen
-    suchart_eingabe = input("multiple or all ?").lower()
-    if suchart_eingabe == "multiple":
-        suchart = "$in"
-    elif suchart_eingabe == "all":
-        suchart = "$all"
 
     #Sortierung Funktion
     sortierungs_element, ascdesc = sortierung()
@@ -209,11 +200,10 @@ def suche_in_array(collection, suchart):
     # Felder auswaehlen
     gezeigte_felder = spezifisch_anzeigen()
 
-    #Suchquery
-    such_query = {array_field: {suchart: value_list}}
-    #Fetch Documents
+    #Prende i documeti
+    such_query = {"genre": {"$all": value_list}}
     documents = list(collection
-                     .find({such_query}, gezeigte_felder)
+                     .find(such_query, gezeigte_felder)
                      .sort(sortierungs_element, ascdesc)
                      .skip(skip_anzahl)
                      .limit(limit_anzahl))

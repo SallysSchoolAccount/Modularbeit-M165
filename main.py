@@ -4,7 +4,7 @@ from rich.align import Align
 from rich.console import Console
 from kleine_funktionen import clear_console
 from read import alles_zeigen, suche_nach_int, suche_nach_name, suche_in_array, schnell_zeigen
-from create_and_update import einfuegen, update_documents
+from change import einfuegen, update_documents, loeschen
 
 # Verbindung zur Datenbank
 verbindung = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -21,7 +21,8 @@ def main_menu():
         console.print(Align("1: [green]Anzeige Funktionen[/green]", align="center"))
         console.print(Align("2: [green]Neue Dokumente einfügen[/green]", align="center"))
         console.print(Align("3: [green]Dokumente ändern[/green]", align="center"))
-        console.print(Align("4: [green]Schnell Anzeige[/green]", align="center"))
+        console.print(Align("4: [green]Dokumente löschen[/green]", align="center"))
+        console.print(Align("5: [green]Schnell Anzeige[/green]", align="center"))
         console.print(Align("0: [red]Programm stoppen[/red]", align="center"))
 
         eingabe = input("Befehl eingeben: ")
@@ -33,6 +34,8 @@ def main_menu():
         elif eingabe == '3':
             update_documents(collection)
         elif eingabe == '4':
+            loeschen(collection)
+        elif eingabe == '5':
             schnell_zeigen(collection)
         elif eingabe == '0':
             console.print("[bold red]Die Anwendung wird geschlossen[/bold red]")
@@ -46,7 +49,8 @@ def anzeigen_menu():
         console.print(Align("[bold magenta]Anzeigen[/bold magenta]", align="center"))
         console.print(Align("1: [green]Alles zeigen[/green]", align="center"))
         console.print(Align("2: [green]Nach Namen suchen[/green]", align="center"))
-        console.print(Align("3: [green]DNach Feldern suchen wo Zahlen als Wert haben[/green]", align="center"))
+        console.print(Align("3: [green]Nach Feldern suchen wo Zahlen als Wert haben[/green]", align="center"))
+        console.print(Align("4: [green]In Arrays suchen[/green]", align="center"))
         console.print(Align("0: [blue]Zurück[/blue]", align="center"))
 
         eingabe_menu = input("Befehl eingeben: ")

@@ -1,0 +1,3 @@
+Bitte installieren sie die rich library um die Dokumente zu anzeigen
+Geben sie den folgenden Programm in das Terminal oder Powershell ein
+pip install rich

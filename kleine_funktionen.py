@@ -46,7 +46,8 @@ def auslassen():
 
 def limitieren():
     while True:
-        limit_eingabe: str = input("Wie viele Resultate anzeigen ?")
+        limit_eingabe: str = input("Wie viele Resultate anzeigen ?"
+                                   "\n(Tippen sie 'alle' um alle resultate anzeigen)")
         if limit_eingabe < "-1":
             print("Zahl nicht gültig")
         elif limit_eingabe == "alle":

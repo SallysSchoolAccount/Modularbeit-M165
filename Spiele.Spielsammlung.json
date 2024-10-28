@@ -1,0 +1,149 @@
+[{
+  "_id": {
+    "$oid": "66f80d8eda132f1ca77e804f"
+  },
+  "name": "god of war",
+  "jahr": 2018,
+  "downloads": 1000000,
+  "bewertung": 9,
+  "genre": [
+    "action",
+    "hack-and-slash",
+    "adventure"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11c8"
+  },
+  "name": "enotria: the last song",
+  "jahr": 2024,
+  "downloads": 540000,
+  "bewertung": 7,
+  "genre": [
+    "souls-lite",
+    "action",
+    "rpg"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11c9"
+  },
+  "name": "dark souls",
+  "jahr": 2013,
+  "downloads": 1540000,
+  "bewertung": 9,
+  "genre": [
+    "souls-like",
+    "adventure",
+    "rpg"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11ca"
+  },
+  "name": "disco elysium",
+  "jahr": 2019,
+  "downloads": 717900,
+  "bewertung": 8,
+  "genre": [
+    "adventure",
+    "puzzle",
+    "rpg"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cb"
+  },
+  "name": "star wars: jedi survivor",
+  "jahr": 2022,
+  "downloads": 543600,
+  "bewertung": 6,
+  "genre": [
+    "souls-lite",
+    "action",
+    "adventure"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cc"
+  },
+  "name": "animal crossing: new horizons",
+  "jahr": 2020,
+  "downloads": 3546500,
+  "bewertung": 8,
+  "genre": [
+    "simulator",
+    "horror",
+    "rpg"
+  ],
+  "pegi": 3
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cd"
+  },
+  "name": "doom eternal",
+  "jahr": 2020,
+  "downloads": 4785000,
+  "bewertung": 8,
+  "genre": [
+    "fps",
+    "action",
+    "adventure"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11ce"
+  },
+  "name": "silent hill 2",
+  "jahr": 2002,
+  "downloads": 7547700,
+  "bewertung": 10,
+  "genre": [
+    "horror",
+    "adventure",
+    "puzzle"
+  ],
+  "pegi": 18
+},
+{
+  "_id": {
+    "$oid": "66f812980c73e07b1ffd11cf"
+  },
+  "name": "five nights at freddys",
+  "jahr": 2015,
+  "downloads": 6540000,
+  "bewertung": 4,
+  "genre": [
+    "horror",
+    "simulator",
+    "puzzle"
+  ],
+  "pegi": 16
+},
+{
+  "_id": {
+    "$oid": "671f8a0fe839b938c7ed31a4"
+  },
+  "name": "call of duty: world at war",
+  "jahr": 2002,
+  "downloads": 1002300,
+  "bewertung": 7,
+  "genre": [
+    "FPS",
+    "Action"
+  ],
+  "pegi": 18
+}]
